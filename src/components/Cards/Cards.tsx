@@ -19,7 +19,7 @@ export default class Cards extends React.Component {
   }
   render() {
     return (
-      <div className={styles.cards}>
+      <div className={styles.cards} data-testid="cards">
         {this.state.cards.map((card) => (
           <Card card={card} key={card.id} />
         ))}

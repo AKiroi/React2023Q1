@@ -4,6 +4,6 @@ import styles from './AboutUs.module.scss';
 
 export default class AboutUs extends React.Component {
   render() {
-    return <div className={styles.aboutUs}>About us</div>;
+    return <h3 className={styles.aboutUs}>About us</h3>;
   }
 }
