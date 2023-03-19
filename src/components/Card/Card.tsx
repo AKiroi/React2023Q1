@@ -1,11 +1,11 @@
-import { CardType } from '../../data/types';
 import React from 'react';
-
+import { CardType } from '../../data/types';
 import styles from './Card.module.scss';
 
 interface CardProps {
   card: CardType;
 }
+
 export default class Card extends React.Component<CardProps> {
   render() {
     const { name, brand, category, photo, inStock, rating, price } = this.props.card;

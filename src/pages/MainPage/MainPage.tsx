@@ -1,10 +1,10 @@
-import Cards from '../../components/Cards/Cards';
-import Search from '../../components/Search/Search';
 import React from 'react';
+import Cards from '../../components/cards/Cards';
+import Search from '../../components/search/Search';
 
 import styles from './Main.module.scss';
 
-export default class Main extends React.Component {
+export default class MainPage extends React.Component {
   render() {
     return (
       <div className={styles.main}>

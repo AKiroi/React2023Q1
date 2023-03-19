@@ -1,2 +1,21 @@
-.header{}
-.nav{}
+.header {
+  background-color: #000;
+}
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  a {
+    color: #fff;
+  }
+}
+.link {
+  text-decoration: none;
+}
+.active {
+  text-decoration: underline;
+}

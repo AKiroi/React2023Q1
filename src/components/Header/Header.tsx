@@ -8,12 +8,15 @@ export default class Header extends React.Component {
     return (
       <div className={styles.header}>
         <nav className={styles.nav}>
-            <NavLink to="/">
-              Main
-            </NavLink>
-            <NavLink to="/aboutUs">
-              About Us
-            </NavLink>
+          <NavLink to={'/'} className={({ isActive }) => (isActive ? styles.active : styles.link)}>
+            Main
+          </NavLink>
+          <NavLink
+            to={'/aboutUs'}
+            className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          >
+            About Us
+          </NavLink>
         </nav>
       </div>
     );
