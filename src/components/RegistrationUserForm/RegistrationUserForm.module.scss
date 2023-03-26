@@ -1,0 +1,73 @@
+.form {
+  display: flex;
+  justify-content: center;
+  //border-radius: 15px;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.label {
+  width: 100%;
+  cursor: pointer;
+}
+
+.input {
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  width: 95%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.date {
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  width: 30%;
+  align-self: flex-start;
+  border-radius: 10px;
+  border: none;
+}
+
+.select {
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  padding: 5px 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #FFCA94;
+  color: #fff;
+  width: 100%;
+  padding: 7px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.radioContainer {
+  align-self: flex-start;
+}
+.radioLabel {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.photo {
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+

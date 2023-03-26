@@ -25,7 +25,7 @@ export default class RegistrationUserForm extends React.Component<RegistrationFo
     this.sexMale = React.createRef();
     this.sexFemale = React.createRef();
     this.photo = React.createRef();
-    this.checkbox= React.createRef();
+    this.checkbox = React.createRef();
     this.form = React.createRef();
   }
 
@@ -41,55 +41,58 @@ export default class RegistrationUserForm extends React.Component<RegistrationFo
     const files = this.photo.current?.files;
     if (files) {
       const photo = URL.createObjectURL(files[0]);
-      this.props.addUser({id, firstName, lastName, birthday, sex, country, photo})
+      this.props.addUser({ id, firstName, lastName, birthday, sex, country, photo });
     }
-  }
+  };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Your first name: <input ref={this.firstName}  type="text" placeholder="first name" />
-        </label>
+      <form className={styles.form} onSubmit={this.handleSubmit}>
+        <div className={styles.container}>
+          <label className={styles.label}>
+            Your first name: <input ref={this.firstName} className={styles.input} type="text" placeholder="first name" />
+          </label >
 
-        <label>
-          Your last name: <input ref={this.lastName} type="text" placeholder="last name" />
-        </label>
-
-        <label>
-          Your birthday: <input ref={this.birthday} type="date" />
-        </label>
-
-        <label>
-          Country:{' '}
-          <select ref={this.country}>
-            <option disabled>Choose country</option>
-            <option value="England">England</option>
-            <option value="Ukraine">Ukraine</option>
-            <option value="Poland">Poland</option>
-          </select>
-        </label>
-
-        <div className="sex">
-          <span>Sex: </span>
-          <label>
-            male <input ref={this.sexMale} type="radio" name="sex" />
+          <label className={styles.label}>
+            Your last name: <input ref={this.lastName} className={styles.input} type="text" placeholder="last name" />
           </label>
 
-          <label>
-            female <input ref={this.sexFemale} type="radio" name="sex" />
+          <label className={styles.label}>
+            Your birthday: <input ref={this.birthday} className={styles.date} type="date" />
           </label>
+
+          <label className={styles.label}>
+            Country:{' '}
+            <select ref={this.country} className={styles.select}>
+              <option disabled value="">Choose country</option>
+              <option value="England">England</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="Poland">Poland</option>
+            </select>
+          </label>
+
+          <div className={styles.radioContainer}>
+            <span>Gender: </span>
+            <label className={styles.radioLabel}>
+              male <input ref={this.sexMale} type="radio" name="sex" />
+            </label>
+
+            <label className={styles.radioLabel}>
+              female <input ref={this.sexFemale} type="radio" name="sex" />
+            </label>
+          </div>
+
+          <label className={styles.label}>
+            Add photo: 
+            <input ref={this.photo} className={styles.photo} type="file" accept=".jpg, .jpeg, .png" />
+          </label>
+
+          <label className={styles.label}>
+            I consent to my personal data: <input ref={this.checkbox} type="checkbox" />
+          </label>
+
+          <button className={styles.button}>Submit</button>
         </div>
-
-        <label>
-          Add photo: <input ref={this.photo} type="file" accept=".jpg, .jpeg, .png" />
-        </label>
-
-        <label>
-          I consent to my personal data: <input ref={this.checkbox} type="checkbox" />
-        </label>
-
-        <button>Submit</button>
       </form>
     );
   }
