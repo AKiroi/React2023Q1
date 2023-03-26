@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './FormPage.module.scss';
 
 export interface RegistrationForm {
+  id: string;
   firstName: string;
   lastName: string;
   birthday: string;
@@ -15,7 +16,8 @@ export interface RegistrationForm {
 export default class FormPage extends React.Component {
   state: { users: RegistrationForm[] } = { users: [] };
 
-  addUser= (user: RegistrationForm) => {
+  addUser = (user: RegistrationForm) => {
+    console.log(user);
     this.setState({ users: [...this.state.users, user] });
   };
   render() {
