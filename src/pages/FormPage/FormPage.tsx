@@ -26,6 +26,7 @@ export default class FormPage extends React.Component {
         <div className={styles.container}>
           <div>Registration form</div>
           <RegistrationUserForm addUser={this.addUser} />
+          <FormUsersList users={this.state.users} />
         </div>
       </div>
     );
