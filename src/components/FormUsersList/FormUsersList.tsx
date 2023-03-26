@@ -1,4 +1,5 @@
 import React from 'react';
+import FormUserCard from '../FormUserCard/FormUserCard';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './FormUsersList.module.scss';
 

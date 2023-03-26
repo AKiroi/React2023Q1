@@ -1,4 +1,5 @@
 import RegistrationUserForm from '../../components/RegistrationUserForm/RegistrationUserForm';
+import FormUsersList from '../../components/FormUsersList/FormUsersList';
 import React from 'react';
 
 import styles from './FormPage.module.scss';

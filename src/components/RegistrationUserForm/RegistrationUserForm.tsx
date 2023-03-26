@@ -38,10 +38,9 @@ export default class RegistrationUserForm extends React.Component<RegistrationFo
     const birthday = this.birthday.current?.value || '';
     const sex = this.sexMale.current?.checked ? 'male' : 'female';
     const country = this.country.current?.value || '';
-    const photo = this.photo.current?.value === undefined ? '' : this.photo.current?.value;
-    
-    console.log({id, firstName, lastName, birthday, sex, country, photo});
-    if (photo) {
+    const files = this.photo.current?.files;
+    if (files) {
+      const photo = URL.createObjectURL(files[0]);
       this.props.addUser({id, firstName, lastName, birthday, sex, country, photo})
     }
   }
@@ -50,11 +49,11 @@ export default class RegistrationUserForm extends React.Component<RegistrationFo
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Write your first name: <input ref={this.firstName}  type="text" placeholder="first name" />
+          Your first name: <input ref={this.firstName}  type="text" placeholder="first name" />
         </label>
 
         <label>
-          Write your last name: <input ref={this.lastName} type="text" placeholder="last name" />
+          Your last name: <input ref={this.lastName} type="text" placeholder="last name" />
         </label>
 
         <label>
@@ -83,7 +82,7 @@ export default class RegistrationUserForm extends React.Component<RegistrationFo
         </div>
 
         <label>
-          Add photo: <input ref={this.photo} type="file" />
+          Add photo: <input ref={this.photo} type="file" accept=".jpg, .jpeg, .png" />
         </label>
 
         <label>
