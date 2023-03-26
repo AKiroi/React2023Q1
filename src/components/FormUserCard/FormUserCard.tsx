@@ -11,7 +11,7 @@ export default class FormUserCard extends React.Component<FormUserCardProp> {
     const { photo, firstName, lastName, birthday, country, } = this.props.user;
     return (
       <li className={styles.user}>
-        {<img className={styles.photo} src={photo} alt="user photo" />}
+        <img className={styles.photo} src={photo} alt="user photo" />
         <div className={styles.col}>
           <span className={styles.name}>First name:</span> {firstName}
         </div>

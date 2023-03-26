@@ -6,11 +6,11 @@ import styles from './FormUsersList.module.scss';
 export default class FormUsersList extends React.Component<{ users: RegistrationForm[] }> {
   render(): React.ReactNode {
     return (
-      <div className={styles.list}>
+      <ul className={styles.list}>
         {this.props.users.map((user) => (
           <FormUserCard user={user} key={user.id} />
         ))}
-      </div>
+      </ul>
     );
   }
 }
