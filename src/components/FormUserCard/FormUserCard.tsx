@@ -8,7 +8,7 @@ interface FormUserCardProp {
 
 export default class FormUserCard extends React.Component<FormUserCardProp> {
   render() {
-    const { photo, firstName, lastName, birthday, country, } = this.props.user;
+    const { photo, firstName, lastName, birthday, country, sex } = this.props.user;
     return (
       <li className={styles.user}>
         <img className={styles.photo} src={photo} alt="user photo" />
@@ -20,6 +20,9 @@ export default class FormUserCard extends React.Component<FormUserCardProp> {
         </div>
         <div className={styles.col}>
           <span className={styles.name}>Birthday:</span> {birthday}
+        </div>
+        <div className={styles.col}>
+          <span className={styles.name}>Gender:</span> {sex}
         </div>
         <div className={styles.col}>
           <span className={styles.name}>Country:</span> {country}

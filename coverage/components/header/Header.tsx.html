@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/header/Header.tsx</title>
+    <title>Code coverage report for components/Header/Header.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/header</a> Header.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Header</a> Header.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.48% </span>
+                <span class="strong">89.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>43/47</span>
+                <span class='fraction'>50/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.48% </span>
+                <span class="strong">89.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>43/47</span>
+                <span class='fraction'>50/56</span>
             </div>
         
             
@@ -110,7 +110,16 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -128,6 +137,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -175,6 +193,9 @@ class Header extends React.Component&lt;WithRouterProps&gt; {
 <span class="branch-0 cbranch-no" title="branch not covered" >      case '/aboutUs':</span>
 <span class="cstat-no" title="statement not covered" >        page = 'AboutUs';</span>
 <span class="cstat-no" title="statement not covered" >        break;</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >      case '/formPage':</span>
+<span class="cstat-no" title="statement not covered" >        page = 'FormPage';</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
       default:
         page = 'ErrorPage';
     }
@@ -195,6 +216,12 @@ class Header extends React.Component&lt;WithRouterProps&gt; {
             &gt;
               AboutUs
             &lt;/NavLink&gt;
+            &lt;NavLink
+              to={'/formPage'}
+              className={({ isActive }) =&gt; (<span class="branch-0 cbranch-no" title="branch not covered" >isActive ? styles.active : s</span>tyles.link)}
+            &gt;
+              Form
+            &lt;/NavLink&gt;
           &lt;/nav&gt;
           &lt;div className={styles.page}&gt;{page} page&lt;/div&gt;
         &lt;/div&gt;
@@ -211,7 +238,7 @@ export default withRouter(Header);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-19T23:36:28.281Z
+                at 2023-03-27T01:25:49.487Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

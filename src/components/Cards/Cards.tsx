@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardType } from '../../data/types';
 import { dataCards } from '../../data/data';
-import Card from '../card/Card';
+import Card from '../Card/Card';
 
 import styles from './cards.module.scss';
 

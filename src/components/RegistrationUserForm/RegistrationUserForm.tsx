@@ -5,10 +5,10 @@ import styles from './RegistrationUserForm.module.scss';
 type RegistrationFormProps = {
   addUser: (user: RegistrationForm) => void;
 };
-type RegistrationFormState =  {
+type RegistrationFormState = {
   errors: Record<string, string | boolean>;
-  isAddUsers : boolean;
-}
+  isAddUser: boolean;
+};
 
 export default class RegistrationUserForm extends React.Component<
   RegistrationFormProps,
@@ -44,12 +44,12 @@ export default class RegistrationUserForm extends React.Component<
         photo: '',
         checkbox: false,
       },
-      isAddUsers: false,
+      isAddUser: false,
     };
   }
 
   validatedForm() {
-    const errors: Record<string, string | boolean>= {};
+    const errors: Record<string, string | boolean> = {};
 
     if (!this.firstName.current?.value) {
       errors['firstName'] = 'This field is required';
@@ -58,7 +58,7 @@ export default class RegistrationUserForm extends React.Component<
         errors['firstName'] = 'The first name is not start with a capital letter';
       }
     }
-    
+
     if (!this.lastName.current?.value) {
       errors['lastName'] = 'This field is required';
     } else {
@@ -109,11 +109,11 @@ export default class RegistrationUserForm extends React.Component<
       this.props.addUser({ id, firstName, lastName, birthday, sex, country, photo });
     }
 
-    this.setState({errors: {}});
-    this.setState({ isAddUsers: true });
+    this.setState({ errors: {} });
+    this.setState({ isAddUser: true });
     setTimeout(() => {
-      this.setState({ isAddUsers: false });
-    }, 3000);
+      this.setState({ isAddUser: false });
+    }, 5000);
     this.form.current?.reset();
   };
 
@@ -178,9 +178,7 @@ export default class RegistrationUserForm extends React.Component<
             <label className={styles.radioLabel}>
               female <input ref={this.sexFemale} type="radio" name="sex" />
             </label>
-            {this.state.errors.sex && (
-              <p className={styles.error}>{this.state.errors.sex}</p>
-            )}
+            {this.state.errors.sex && <p className={styles.error}>{this.state.errors.sex}</p>}
           </div>
 
           <label className={styles.label}>
@@ -191,9 +189,7 @@ export default class RegistrationUserForm extends React.Component<
               type="file"
               accept=".jpg, .jpeg, .png"
             />
-             {this.state.errors.photo && (
-              <p className={styles.error}>{this.state.errors.photo}</p>
-            )}
+            {this.state.errors.photo && <p className={styles.error}>{this.state.errors.photo}</p>}
           </label>
 
           <label className={styles.label}>
@@ -205,7 +201,7 @@ export default class RegistrationUserForm extends React.Component<
 
           <button className={styles.button}>Submit</button>
 
-          {this.state.isAddUsers && <div>Add user</div>}
+          {this.state.isAddUser && <div>Add user</div>}
         </div>
       </form>
     );
