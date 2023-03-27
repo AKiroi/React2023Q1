@@ -2,9 +2,9 @@ import React from 'react';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './FormUserCard.module.scss';
 
-interface FormUserCardProp {
+type FormUserCardProp = {
   user: RegistrationForm;
-}
+};
 
 export default class FormUserCard extends React.Component<FormUserCardProp> {
   render() {

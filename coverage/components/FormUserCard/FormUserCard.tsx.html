@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/33</span>
+                <span class='fraction'>33/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/33</span>
+                <span class='fraction'>33/33</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,61 +106,61 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './FormUserCard.module.scss';
 &nbsp;
-interface FormUserCardProp {
+type FormUserCardProp = {
   user: RegistrationForm;
-}
+};
 &nbsp;
 export default class FormUserCard extends React.Component&lt;FormUserCardProp&gt; {
-<span class="fstat-no" title="function not covered" >  render() {</span>
-<span class="cstat-no" title="statement not covered" >    const { photo, firstName, lastName, birthday, country, sex } = this.props.user;</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;li className={styles.user}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;img className={styles.photo} src={photo} alt="user photo" /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.col}&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={styles.name}&gt;First name:&lt;/span&gt; {firstName}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.col}&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={styles.name}&gt;Last name:&lt;/span&gt; {lastName}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.col}&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={styles.name}&gt;Birthday:&lt;/span&gt; {birthday}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.col}&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={styles.name}&gt;Gender:&lt;/span&gt; {sex}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.col}&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className={styles.name}&gt;Country:&lt;/span&gt; {country}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/li&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  render() {
+    const { photo, firstName, lastName, birthday, country, sex } = this.props.user;
+    return (
+      &lt;li className={styles.user}&gt;
+        &lt;img className={styles.photo} src={photo} alt="user photo" /&gt;
+        &lt;div className={styles.col}&gt;
+          &lt;span className={styles.name}&gt;First name:&lt;/span&gt; {firstName}
+        &lt;/div&gt;
+        &lt;div className={styles.col}&gt;
+          &lt;span className={styles.name}&gt;Last name:&lt;/span&gt; {lastName}
+        &lt;/div&gt;
+        &lt;div className={styles.col}&gt;
+          &lt;span className={styles.name}&gt;Birthday:&lt;/span&gt; {birthday}
+        &lt;/div&gt;
+        &lt;div className={styles.col}&gt;
+          &lt;span className={styles.name}&gt;Gender:&lt;/span&gt; {sex}
+        &lt;/div&gt;
+        &lt;div className={styles.col}&gt;
+          &lt;span className={styles.name}&gt;Country:&lt;/span&gt; {country}
+        &lt;/div&gt;
+      &lt;/li&gt;
+    );
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -169,7 +169,7 @@ export default class FormUserCard extends React.Component&lt;FormUserCardProp&gt
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-27T01:25:49.487Z
+                at 2023-03-27T01:48:08.575Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
