@@ -12,7 +12,7 @@ const mockData = [
     birthday: '01-01-2023',
     sex: 'male',
     country: 'England',
-    photo: 'test.png'
+    photo: 'test.png',
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ const mockData = [
     birthday: '01-01-2023',
     sex: 'female',
     country: 'England',
-    photo: 'test.png'
+    photo: 'test.png',
   },
 ];
 

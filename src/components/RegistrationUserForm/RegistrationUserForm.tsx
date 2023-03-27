@@ -52,7 +52,7 @@ export default class RegistrationUserForm extends React.Component<
     const errors: Record<string, string | boolean> = {};
 
     if (!this.firstName.current?.value) {
-      errors['firstName'] = 'This field is required';
+      errors['firstName'] = 'The first name is required';
     } else {
       if (this.firstName.current?.value[0] !== this.firstName.current?.value[0].toUpperCase()) {
         errors['firstName'] = 'The first name is not start with a capital letter';
@@ -60,14 +60,14 @@ export default class RegistrationUserForm extends React.Component<
     }
 
     if (!this.lastName.current?.value) {
-      errors['lastName'] = 'This field is required';
+      errors['lastName'] = 'The last name is required';
     } else {
       if (this.lastName.current?.value[0] !== this.lastName.current?.value[0].toUpperCase()) {
         errors['lastName'] = 'The last name is not start with a capital letter';
       }
     }
     if (!this.birthday.current?.value) {
-      errors['birthday'] = 'This field is required';
+      errors['birthday'] = 'The date is required';
     } else if (Date.parse(this.birthday.current?.value) > Date.now()) {
       errors['birthday'] = 'Invalid date';
     }
@@ -128,6 +128,7 @@ export default class RegistrationUserForm extends React.Component<
               className={styles.input}
               type="text"
               placeholder="first name"
+              data-testid="first-name"
             />
             {this.state.errors.firstName && (
               <p className={styles.error}>{this.state.errors.firstName}</p>
@@ -148,7 +149,13 @@ export default class RegistrationUserForm extends React.Component<
           </label>
 
           <label className={styles.label}>
-            Your birthday: <input ref={this.birthday} className={styles.date} type="date" />
+            Your birthday:{' '}
+            <input
+              ref={this.birthday}
+              className={styles.date}
+              type="date"
+              data-testid="form-date"
+            />
             {this.state.errors.birthday && (
               <p className={styles.error}>{this.state.errors.birthday}</p>
             )}
