@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
@@ -6,12 +6,19 @@ import styles from './RegistrationUserForm.module.scss';
 type RegistrationFormProps = {
   addUser: (user: RegistrationForm) => void;
 };
-//type RegistrationFormState = {
-//  errors: Record<string, string | boolean>;
-//  isAddUser: boolean;
-//};
+
+type Forms = {
+  firstName: string;
+  lastName: string;
+  birthday: string;
+  sex: string;
+  country: string;
+  photo: FileList;
+  check?: boolean;
+};
 
 const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
+  const [isAddUser, setIsAddUser] = useState(false);
   const {
     register,
     handleSubmit,
@@ -20,7 +27,17 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
   } = useForm<RegistrationForm>();
 
   const onSubmit = (data: object) => {
-    console.log(data);
+    const { firstName, lastName, country, birthday, sex, check, photo: files } = data as Forms;
+    if (files && check) {
+      const id = Date.now().toString();
+      const photo = URL.createObjectURL(files[0]);
+      addUser({ id, firstName, lastName, country, birthday, sex, photo, check });
+    }
+    reset();
+    setIsAddUser(true);
+    setTimeout(() => {
+      setIsAddUser(false);
+    }, 5000);
   };
 
   return (
@@ -95,6 +112,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
                 required: 'Field is require',
               })}
               type="radio"
+              value="male"
               name="sex"
             />
           </label>
@@ -105,6 +123,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
               {...register('sex', {
                 required: 'Field is require',
               })}
+              value="female"
               type="radio"
               name="sex"
             />
@@ -138,7 +157,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
 
         <button className={styles.button}>Submit</button>
 
-        {/*{this.state.isAddUser && <div>Add user</div>}*/}
+        {isAddUser && <div>Add user</div>}
       </div>
     </form>
   );
