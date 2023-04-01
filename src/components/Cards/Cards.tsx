@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardType } from '../../data/types';
 import { dataCards } from '../../data/data';
 import Card from '../Card/Card';
@@ -9,21 +9,16 @@ interface CardsState {
   cards: CardType[];
 }
 
-export default class Cards extends React.Component {
-  state: CardsState = {
-    cards: [],
-  };
+const Cards = () => {
+  const [cards, setCards] = useState<CardType[]>(dataCards);
+  
+  return (
+    <div className={styles.cards} data-testid="cards">
+      {cards.map((card) => (
+        <Card card={card} key={card.id} />
+      ))}
+    </div>
+  );
+};
 
-  componentDidMount(): void {
-    this.setState({ cards: dataCards });
-  }
-  render() {
-    return (
-      <div className={styles.cards} data-testid="cards">
-        {this.state.cards.map((card) => (
-          <Card card={card} key={card.id} />
-        ))}
-      </div>
-    );
-  }
-}
+export default Cards;
