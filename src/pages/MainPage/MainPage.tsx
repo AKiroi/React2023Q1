@@ -4,13 +4,13 @@ import Search from '../../components/Search/Search';
 
 import styles from './Main.module.scss';
 
-export default class MainPage extends React.Component {
-  render() {
-    return (
-      <div className={styles.main}>
-        <Search />
-        <Cards />
-      </div>
-    );
-  }
-}
+const MainPage = () => {
+  return (
+    <div className={styles.main}>
+      <Search />
+      <Cards />
+    </div>
+  );
+};
+
+export default MainPage;

@@ -7,18 +7,19 @@ import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import Header from '../Header/Header';
 
 import './app.css';
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route index element={<MainPage />} />
-          <Route path="/aboutUs" element={<AboutPage />} />
-          <Route path="/formPage" element={<FormPage />} />
-          <Route path="/*" element={<ErrorPage />} />
-        </Routes>
-      </div>
-    );
-  }
-}
+
+const App = () => {
+  return (
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route index element={<MainPage />} />
+        <Route path="/aboutUs" element={<AboutPage />} />
+        <Route path="/formPage" element={<FormPage />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default App;
