@@ -20,6 +20,7 @@ const FormPage = () => {
   const addUser = (user: RegistrationForm) => {
     setUsers([...users, user]);
   };
+
   return (
     <div className={styles.formPage}>
       <div className={styles.container}>
