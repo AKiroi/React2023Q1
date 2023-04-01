@@ -1,33 +1,31 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useRef, useState, useEffect } from 'react';
 
 import styles from './Search.module.scss';
 
-export default class Search extends React.Component {
-  state = { value: '' };
+const Search = () => {
+  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
+  const search = useRef<string>();
 
-  componentDidMount(): void {
-    const value = localStorage.getItem('searchValue');
-    this.setState({ value: value ? value : '' });
-  }
+  useEffect(() => {
+    search.current = searchValue;
+  }, [searchValue]);
 
-  componentWillUnmount(): void {
-    localStorage.setItem('searchValue', this.state.value);
-  }
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchValue', search.current || '');
+    };
+  }, []);
 
-  handleSearchValue = (event: ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ value: event.target.value });
+  const handleSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
+    setSearchValue(e.target.value);
+    localStorage.setItem('searchValue', searchValue);
   };
 
-  render(): React.ReactNode {
-    return (
-      <div className={styles.search}>
-        <input
-          type="search"
-          value={this.state.value}
-          placeholder="Find..."
-          onChange={this.handleSearchValue}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.search}>
+      <input type="text" value={searchValue} placeholder="Find..." onChange={handleSearchValue} />
+    </div>
+  );
+};
+
+export default Search;
