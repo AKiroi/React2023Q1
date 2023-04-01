@@ -12,6 +12,7 @@ export interface RegistrationForm {
   sex: string;
   country: string;
   photo: string;
+  check: true
 }
 
 const FormPage = () => {
