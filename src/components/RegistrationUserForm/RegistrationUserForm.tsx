@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
 import InputDate from '../InputDate/InputDate';
+import Select from '../Select/Select';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
 
@@ -78,6 +79,12 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           type="date"
           register={register}
           errors={errors}
+          />
+        <Select 
+         name="country"
+         labelName="Country:"
+         register={register}
+         errors={errors}
         />
         {/*<label className={styles.label}>
           Your first name:{' '}
@@ -124,7 +131,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           {errors?.birthday && <p className={styles.error}>{errors.birthday?.message}</p>}
         </label>*/}
 
-        <label className={styles.label}>
+        {/*<label className={styles.label}>
           Country:{' '}
           <select
             {...register('country', {
@@ -141,7 +148,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
             <option value="Poland">Poland</option>
           </select>
           {errors?.country && <p className={styles.error}>{errors.country?.message}</p>}
-        </label>
+        </label>*/}
 
         <div className={styles.radioContainer}>
           <span>Gender: </span>
