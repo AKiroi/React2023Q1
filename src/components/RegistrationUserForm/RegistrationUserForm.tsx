@@ -1,13 +1,21 @@
 import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
+import InputDate from '../InputDate/InputDate';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
 
 type RegistrationFormProps = {
   addUser: (user: RegistrationForm) => void;
 };
-export type FormNameTypes = 'firstName' | 'lastName' | 'birthday' | 'sex' | 'country' | 'photo' | 'check';
+export type FormNameTypes =
+  | 'firstName'
+  | 'lastName'
+  | 'birthday'
+  | 'sex'
+  | 'country'
+  | 'photo'
+  | 'check';
 
 export type Forms = {
   firstName: string;
@@ -53,7 +61,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           errors={errors}
           placeholder="first name"
           dataTestId="first-name"
-          />
+        />
         <Input
           name="lastName"
           labelName="Your last name:"
@@ -62,6 +70,14 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           errors={errors}
           placeholder="last name"
           dataTestId="last-name"
+        />
+
+        <InputDate
+          name="birthday"
+          labelName="Your birthday:"
+          type="date"
+          register={register}
+          errors={errors}
         />
         {/*<label className={styles.label}>
           Your first name:{' '}
@@ -95,7 +111,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           {errors?.firstName && <p className={styles.error}>{errors.lastName?.message}</p>}
         </label>*/}
 
-        <label className={styles.label}>
+        {/*<label className={styles.label}>
           Your birthday:{' '}
           <input
             className={styles.date}
@@ -106,7 +122,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
             data-testid="form-date"
           />
           {errors?.birthday && <p className={styles.error}>{errors.birthday?.message}</p>}
-        </label>
+        </label>*/}
 
         <label className={styles.label}>
           Country:{' '}

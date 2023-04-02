@@ -2,27 +2,17 @@ import { FormNameTypes, Forms } from '../RegistrationUserForm/RegistrationUserFo
 import React, { FC } from 'react';
 import { UseFormRegister, FieldErrors } from 'react-hook-form/dist/types';
 
-import styles from './Input.module.scss';
+import styles from './InputDate.module.scss';
 
 interface InputProps {
   name: FormNameTypes;
   labelName: string;
   type: string;
-  dataTestId: string;
-  placeholder?: string;
   register: UseFormRegister<Forms>;
   errors: FieldErrors<Forms>;
 }
 
-const Input: FC<InputProps> = ({
-  name,
-  register,
-  errors,
-  labelName,
-  type,
-  dataTestId,
-  placeholder,
-}) => {
+const InputDate: FC<InputProps> = ({ name, register, errors, labelName, type }) => {
   return (
     <label className={styles.label}>
       {labelName}
@@ -31,17 +21,11 @@ const Input: FC<InputProps> = ({
         className={styles.input}
         {...register(name, {
           required: `The ${name} is require`,
-          pattern: {
-            value: /^[A-ZА-Я]{1}[A-Za-zА-Яа-я\'\']*$/,
-            message: `The ${name} is not start with a capital letter`,
-          },
         })}
-        placeholder={placeholder}
-        data-testid={dataTestId}
       />
       {errors && <p className={styles.error}>{errors?.[name]?.message}</p>}
     </label>
   );
 };
 
-export default Input;
+export default InputDate;
