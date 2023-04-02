@@ -10,18 +10,20 @@ const mockData = [
     firstName: 'TestName',
     lastName: 'TestLastName',
     birthday: '01-01-2023',
-    sex: 'male',
+    gender: 'male',
     country: 'England',
     photo: 'test.png',
+    check: true,
   },
   {
     id: '2',
     firstName: 'TestName',
     lastName: 'TestLastName',
     birthday: '01-01-2023',
-    sex: 'female',
+    gender: 'female',
     country: 'England',
     photo: 'test.png',
+    check: true,
   },
 ];
 

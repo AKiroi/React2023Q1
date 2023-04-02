@@ -9,8 +9,9 @@ const mockData = {
   birthday: '01-01-2023',
   country: 'England',
   id: '01',
-  sex: 'male',
+  gender: 'male',
   photo: 'test.png',
+  check: true,
 };
 
 describe('FormUserCard', () => {

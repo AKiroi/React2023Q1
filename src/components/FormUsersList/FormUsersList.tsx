@@ -3,9 +3,9 @@ import FormUserCard from '../FormUserCard/FormUserCard';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './FormUsersList.module.scss';
 
-type UsersListProps =  {
+type UsersListProps = {
   users: RegistrationForm[];
-}
+};
 
 const FormUsersList: FC<UsersListProps> = ({ users }) => {
   return (
@@ -15,7 +15,6 @@ const FormUsersList: FC<UsersListProps> = ({ users }) => {
       ))}
     </ul>
   );
-}
+};
 
 export default FormUsersList;
-
