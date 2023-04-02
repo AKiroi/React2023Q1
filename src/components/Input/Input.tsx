@@ -4,11 +4,11 @@ import { UseFormRegister, FieldErrors } from 'react-hook-form/dist/types';
 
 import styles from './Input.module.scss';
 
-interface InputProps {
+export interface InputProps {
   name: FormNameTypes;
   labelName: string;
   type: string;
-  dataTestId: string;
+  dataTestId?: string;
   placeholder?: string;
   register: UseFormRegister<Forms>;
   errors: FieldErrors<Forms>;
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({
         type={type}
         className={styles.input}
         {...register(name, {
-          required: `The ${name} is require`,
+          required: `The ${name} is required`,
           pattern: {
             value: /^[A-ZА-Я]{1}[A-Za-zА-Яа-я\'\']*$/,
             message: `The ${name} is not start with a capital letter`,

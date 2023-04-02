@@ -17,7 +17,7 @@ const Select: FC<SelectProps> = ({ name, register, errors, labelName }) => {
       {labelName}
       <select
         {...register(name, {
-          required: `The ${name} is require`,
+          required: `The ${name} is required`,
         })}
         className={styles.select}
         defaultValue=""

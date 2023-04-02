@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/FormPage/FormPage.tsx</title>
+    <title>Code coverage report for components/Select/Select.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/FormPage</a> FormPage.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Select</a> Select.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">41.02% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/36</span>
+                <span class='fraction'>16/39</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">41.02% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/36</span>
+                <span class='fraction'>16/39</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,11 +99,10 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -133,44 +132,54 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import RegistrationUserForm from '../../components/RegistrationUserForm/RegistrationUserForm';
-import FormUsersList from '../../components/FormUsersList/FormUsersList';
-import React, { useState } from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FormNameTypes, Forms } from '../RegistrationUserForm/RegistrationUserForm';
+import React, { FC } from 'react';
+import { UseFormRegister, FieldErrors } from 'react-hook-form/dist/types';
 &nbsp;
-import styles from './FormPage.module.scss';
+import styles from './Select.module.scss';
 &nbsp;
-export interface RegistrationForm {
-  id: string;
-  firstName: string;
-  lastName: string;
-  birthday: string;
-  gender: string;
-  country: string;
-  photo: string;
-  check: boolean;
+interface SelectProps {
+  name: FormNameTypes;
+  labelName: string;
+  register: UseFormRegister&lt;Forms&gt;;
+  errors: FieldErrors&lt;Forms&gt;;
 }
 &nbsp;
-const FormPage = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [users, setUsers] = useState&lt;RegistrationForm[]&gt;([]);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const addUser = (user: RegistrationForm) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setUsers([...users, user]);</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" ></span>
+const Select: FC&lt;SelectProps&gt; = <span class="fstat-no" title="function not covered" >({ name, register, errors, labelName }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className={styles.formPage}&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className={styles.container}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.title}&gt;Registration form&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;RegistrationUserForm addUser={addUser} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;FormUsersList users={users} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;label className={styles.label}&gt;</span>
+<span class="cstat-no" title="statement not covered" >      {labelName}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;select</span>
+<span class="cstat-no" title="statement not covered" >        {...register(name, {</span>
+<span class="cstat-no" title="statement not covered" >          required: `The ${name} is require`,</span>
+<span class="cstat-no" title="statement not covered" >        })}</span>
+<span class="cstat-no" title="statement not covered" >        className={styles.select}</span>
+<span class="cstat-no" title="statement not covered" >        defaultValue=""</span>
+<span class="cstat-no" title="statement not covered" >      &gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option disabled value=""&gt;</span>
+<span class="cstat-no" title="statement not covered" >          Choose country</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option value="England"&gt;England&lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option value="Ukraine"&gt;Ukraine&lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option value="Belarus"&gt;Belarus&lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option value="Italy"&gt;Italy&lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;option value="Poland"&gt;Poland&lt;/option&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/select&gt;</span>
+<span class="cstat-no" title="statement not covered" >      {errors &amp;&amp; &lt;p className={styles.error}&gt;{errors?.[name]?.message}&lt;/p&gt;}</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/label&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-export default FormPage;
+export default Select;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

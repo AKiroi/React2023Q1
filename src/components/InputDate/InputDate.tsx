@@ -20,7 +20,7 @@ const InputDate: FC<InputProps> = ({ name, register, errors, labelName, type }) 
         type={type}
         className={styles.input}
         {...register(name, {
-          required: `The ${name} is require`,
+          required: `The ${name} is required`,
         })}
       />
       {errors && <p className={styles.error}>{errors?.[name]?.message}</p>}

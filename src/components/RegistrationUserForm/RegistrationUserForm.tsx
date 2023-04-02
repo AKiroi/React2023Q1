@@ -38,7 +38,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<Forms>();
+  } = useForm<Forms>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
 
   const onSubmit = (data: object) => {
     const { firstName, lastName, country, birthday, gender, check, photo: files } = data as Forms;
@@ -65,6 +65,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           errors={errors}
           placeholder="first name"
           dataTestId="first-name"
+          data-testid="first-name"
         />
         <Input
           name="lastName"

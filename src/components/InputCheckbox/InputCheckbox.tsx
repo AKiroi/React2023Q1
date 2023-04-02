@@ -17,7 +17,7 @@ const InputCheckbox: FC<InputCheckboxProps> = ({ name, register, errors, labelNa
     <label className={styles.label}>
       <input
         {...register(name, {
-          required: 'Field is require',
+          required: 'Field is required',
         })}
         type={type}
       />

@@ -18,7 +18,7 @@ const InputFile: FC<InputFileProps> = ({ name, register, errors, labelName, type
       {labelName}
       <input
         {...register(name, {
-          required: `The ${name} is require`,
+          required: `The ${name} is required`,
         })}
         className={styles.photo}
         type={type}
