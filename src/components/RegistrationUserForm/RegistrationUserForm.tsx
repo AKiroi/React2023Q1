@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
 import InputDate from '../InputDate/InputDate';
 import InputRadio from '../InputRadio/InputRadio';
+import InputFile from '../InputFile/InputFile';
 import Select from '../Select/Select';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
@@ -73,7 +74,6 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           placeholder="last name"
           dataTestId="last-name"
         />
-
         <InputDate
           name="birthday"
           labelName="Your birthday:"
@@ -94,6 +94,13 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
          register={register}
          errors={errors}
         />
+        <InputFile
+          name="photo"
+          labelName="Add photo:"
+          type="file"
+          register={register}
+          errors={errors}
+          />
         {/*<label className={styles.label}>
           Your first name:{' '}
           <input
@@ -186,7 +193,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           {errors?.gender && <p className={styles.error}>{errors.gender?.message}</p>}
         </div>*/}
 
-        <label className={styles.label}>
+        {/*<label className={styles.label}>
           Add photo:
           <input
             {...register('photo', {
@@ -197,7 +204,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
             accept=".jpg, .jpeg, .png"
           />
           {errors?.photo && <p className={styles.error}>{errors.photo?.message}</p>}
-        </label>
+        </label>*/}
 
         <label className={styles.label}>
           I consent to my personal data:
