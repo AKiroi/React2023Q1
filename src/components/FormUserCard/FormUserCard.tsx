@@ -7,7 +7,7 @@ type FormUserCardProp = {
 };
 
 const FormUserCard: FC<FormUserCardProp> = ({ user }) => {
-  const { photo, firstName, lastName, birthday, country, sex } = user;
+  const { photo, firstName, lastName, birthday, country, gender } = user;
   return (
     <li className={styles.user} data-testid="user">
       <img className={styles.photo} src={photo} alt="user photo" />
@@ -21,7 +21,7 @@ const FormUserCard: FC<FormUserCardProp> = ({ user }) => {
         <span className={styles.name}>Birthday:</span> {birthday}
       </div>
       <div className={styles.col}>
-        <span className={styles.name}>Gender:</span> {sex}
+        <span className={styles.name}>Gender:</span> {gender}
       </div>
       <div className={styles.col}>
         <span className={styles.name}>Country:</span> {country}

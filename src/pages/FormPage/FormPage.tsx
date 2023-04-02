@@ -9,7 +9,7 @@ export interface RegistrationForm {
   firstName: string;
   lastName: string;
   birthday: string;
-  sex: string;
+  gender: string;
   country: string;
   photo: string;
   check: true

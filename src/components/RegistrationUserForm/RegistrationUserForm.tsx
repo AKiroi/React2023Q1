@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '../Input/Input';
 import InputDate from '../InputDate/InputDate';
+import InputRadio from '../InputRadio/InputRadio';
 import Select from '../Select/Select';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
@@ -13,7 +14,7 @@ export type FormNameTypes =
   | 'firstName'
   | 'lastName'
   | 'birthday'
-  | 'sex'
+  | 'gender'
   | 'country'
   | 'photo'
   | 'check';
@@ -22,7 +23,7 @@ export type Forms = {
   firstName: string;
   lastName: string;
   birthday: string;
-  sex: string;
+  gender: string;
   country: string;
   photo: FileList;
   check?: boolean;
@@ -38,11 +39,11 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
   } = useForm<Forms>();
 
   const onSubmit = (data: object) => {
-    const { firstName, lastName, country, birthday, sex, check, photo: files } = data as Forms;
+    const { firstName, lastName, country, birthday, gender, check, photo: files } = data as Forms;
     if (files && check) {
       const id = Date.now().toString();
       const photo = URL.createObjectURL(files[0]);
-      addUser({ id, firstName, lastName, country, birthday, sex, photo, check });
+      addUser({ id, firstName, lastName, country, birthday, gender, photo, check });
     }
     reset();
     setIsAddUser(true);
@@ -83,6 +84,13 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
         <Select 
          name="country"
          labelName="Country:"
+         register={register}
+         errors={errors}
+        />
+        <InputRadio 
+         name="gender"
+         type="radio"
+         labelName="Gender:"
          register={register}
          errors={errors}
         />
@@ -150,12 +158,12 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           {errors?.country && <p className={styles.error}>{errors.country?.message}</p>}
         </label>*/}
 
-        <div className={styles.radioContainer}>
+        {/*<div className={styles.radioContainer}>
           <span>Gender: </span>
           <label className={styles.radioLabel}>
             male{' '}
             <input
-              {...register('sex', {
+              {...register('gender', {
                 required: 'Field is require',
               })}
               type="radio"
@@ -167,7 +175,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           <label className={styles.radioLabel}>
             female{' '}
             <input
-              {...register('sex', {
+              {...register('gender', {
                 required: 'Field is require',
               })}
               value="female"
@@ -175,8 +183,8 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
               name="sex"
             />
           </label>
-          {errors?.sex && <p className={styles.error}>{errors.sex?.message}</p>}
-        </div>
+          {errors?.gender && <p className={styles.error}>{errors.gender?.message}</p>}
+        </div>*/}
 
         <label className={styles.label}>
           Add photo:
