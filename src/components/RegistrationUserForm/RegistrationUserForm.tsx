@@ -1,13 +1,15 @@
 import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Input from '../Input/Input';
 import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './RegistrationUserForm.module.scss';
 
 type RegistrationFormProps = {
   addUser: (user: RegistrationForm) => void;
 };
+export type FormNameTypes = 'firstName' | 'lastName' | 'birthday' | 'sex' | 'country' | 'photo' | 'check';
 
-type Forms = {
+export type Forms = {
   firstName: string;
   lastName: string;
   birthday: string;
@@ -24,7 +26,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<RegistrationForm>();
+  } = useForm<Forms>();
 
   const onSubmit = (data: object) => {
     const { firstName, lastName, country, birthday, sex, check, photo: files } = data as Forms;
@@ -43,21 +45,43 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.container}>
-        <label className={styles.label}>
+        <Input
+          name="firstName"
+          labelName="Your first name:"
+          type="text"
+          register={register}
+          errors={errors}
+          placeholder="first name"
+          dataTestId="first-name"
+          />
+        <Input
+          name="lastName"
+          labelName="Your last name:"
+          type="text"
+          register={register}
+          errors={errors}
+          placeholder="last name"
+          dataTestId="last-name"
+        />
+        {/*<label className={styles.label}>
           Your first name:{' '}
           <input
             className={styles.input}
             {...register('firstName', {
               required: 'Field is require',
+              pattern: {
+                value: /^[A-ZА-Я]{1}[A-Za-zА-Яа-я\'\']*$/,
+                message: 'upper',
+              },
             })}
             type="text"
             placeholder="first name"
             data-testid="first-name"
           />
           {errors?.firstName && <p className={styles.error}>{errors.firstName?.message}</p>}
-        </label>
+        </label>*/}
 
-        <label className={styles.label}>
+        {/*<label className={styles.label}>
           Your last name:{' '}
           <input
             className={styles.input}
@@ -69,7 +93,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
             data-testid="last-name"
           />
           {errors?.firstName && <p className={styles.error}>{errors.lastName?.message}</p>}
-        </label>
+        </label>*/}
 
         <label className={styles.label}>
           Your birthday:{' '}
