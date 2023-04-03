@@ -18,7 +18,6 @@ const Search = () => {
 
   const handleSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
-    localStorage.setItem('searchValue', searchValue);
   };
 
   return (
