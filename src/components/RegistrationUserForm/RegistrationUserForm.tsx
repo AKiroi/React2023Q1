@@ -55,7 +55,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)} data-testid="form">
       <div className={styles.container}>
         <Input
           name="firstName"
@@ -64,8 +64,6 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
           register={register}
           errors={errors}
           placeholder="first name"
-          dataTestId="first-name"
-          data-testid="first-name"
         />
         <Input
           name="lastName"

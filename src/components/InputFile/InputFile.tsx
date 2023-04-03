@@ -14,7 +14,7 @@ interface InputFileProps {
 
 const InputFile: FC<InputFileProps> = ({ name, register, errors, labelName, type }) => {
   return (
-    <label className={styles.label}>
+    <label className={styles.label} data-testid="inputFile">
       {labelName}
       <input
         {...register(name, {

@@ -23,7 +23,7 @@ const FormPage = () => {
   };
 
   return (
-    <div className={styles.formPage}>
+    <div className={styles.formPage} data-testid="formPage">
       <div className={styles.container}>
         <div className={styles.title}>Registration form</div>
         <RegistrationUserForm addUser={addUser} />

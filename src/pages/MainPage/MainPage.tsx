@@ -6,7 +6,7 @@ import styles from './Main.module.scss';
 
 const MainPage = () => {
   return (
-    <div className={styles.main}>
+    <div className={styles.main} data-testid="mainPage">
       <Search />
       <Cards />
     </div>

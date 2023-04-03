@@ -14,7 +14,7 @@ interface InputProps {
 
 const InputDate: FC<InputProps> = ({ name, register, errors, labelName, type }) => {
   return (
-    <label className={styles.label}>
+    <label className={styles.label} data-testid="inputDate">
       {labelName}
       <input
         type={type}

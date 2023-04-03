@@ -24,7 +24,7 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <div className={styles.header}>
+    <div className={styles.header} data-testid="header-test">
       <div className={styles.container}>
         <nav className={styles.nav}>
           <NavLink to={'/'} className={({ isActive }) => (isActive ? styles.active : styles.link)}>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/36</span>
+                <span class='fraction'>34/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/36</span>
+                <span class='fraction'>34/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -117,22 +117,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import RegistrationUserForm from '../../components/RegistrationUserForm/RegistrationUserForm';
@@ -152,23 +152,23 @@ export interface RegistrationForm {
   check: boolean;
 }
 &nbsp;
-const FormPage = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [users, setUsers] = useState&lt;RegistrationForm[]&gt;([]);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const addUser = (user: RegistrationForm) =&gt; {</span>
+const FormPage = () =&gt; {
+  const [users, setUsers] = useState&lt;RegistrationForm[]&gt;([]);
+&nbsp;
+  const addUser = <span class="fstat-no" title="function not covered" >(user: RegistrationForm) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setUsers([...users, user]);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className={styles.formPage}&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className={styles.container}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className={styles.title}&gt;Registration form&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;RegistrationUserForm addUser={addUser} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;FormUsersList users={users} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+&nbsp;
+  return (
+    &lt;div className={styles.formPage} data-testid="formPage"&gt;
+      &lt;div className={styles.container}&gt;
+        &lt;div className={styles.title}&gt;Registration form&lt;/div&gt;
+        &lt;RegistrationUserForm addUser={addUser} /&gt;
+        &lt;FormUsersList users={users} /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
 &nbsp;
 export default FormPage;
 &nbsp;</pre></td></tr></table></pre>
@@ -178,7 +178,7 @@ export default FormPage;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-02T23:37:57.930Z
+                at 2023-04-03T01:08:57.139Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
