@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680484137347" clover="3.2.0">
-  <project timestamp="1680484137348" name="All files">
-    <metrics statements="709" coveredstatements="686" conditionals="41" coveredconditionals="28" methods="25" coveredmethods="22" elements="775" coveredelements="736" complexity="0" loc="709" ncloc="709" packages="19" files="19" classes="19"/>
+<coverage generated="1680622235054" clover="3.2.0">
+  <project timestamp="1680622235055" name="All files">
+    <metrics statements="708" coveredstatements="686" conditionals="41" coveredconditionals="28" methods="25" coveredmethods="22" elements="774" coveredelements="736" complexity="0" loc="708" ncloc="708" packages="19" files="19" classes="19"/>
     <package name="components.App">
       <metrics statements="25" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="E:\work\rs\react\component\deploy1\React2023Q1\src\components\App\App.tsx">
@@ -560,9 +560,9 @@
       </file>
     </package>
     <package name="components.Search">
-      <metrics statements="31" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
+      <metrics statements="30" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
       <file name="Search.tsx" path="E:\work\rs\react\component\deploy1\React2023Q1\src\components\Search\Search.tsx">
-        <metrics statements="31" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
+        <metrics statements="30" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -584,16 +584,15 @@
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Select">

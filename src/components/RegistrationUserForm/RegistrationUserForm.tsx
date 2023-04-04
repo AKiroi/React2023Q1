@@ -106,7 +106,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
 
         <button className={styles.button}>Submit</button>
 
-        {isAddUser && <div>Add user</div>}
+        {isAddUser && <div className={styles.addUser}>Add user</div>}
       </div>
     </form>
   );
