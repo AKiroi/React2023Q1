@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Cards from '../../components/Cards/Cards';
 import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
+import Modal from '../../components/Modal/Modal';
 
 import styles from './Main.module.scss';
 
@@ -22,6 +23,7 @@ export type CardsType = {
 const MainPage = () => {
   const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isModal, setIsModal] = useState<boolean>(true);
   const [cards, setCards] = useState<CardsType[]>([]);
   const searchRef = useRef<string>();
 
@@ -55,6 +57,7 @@ const MainPage = () => {
 
   return (
     <div className={styles.main} data-testid="mainPage">
+      {isModal && <Modal />}
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       {isLoading ? <Loader /> : <Content />}
     </div>
