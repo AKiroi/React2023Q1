@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { CardsType } from '../../pages/MainPage/MainPage';
 import styles from './Card.module.scss';
 
-type CardProps = {
+export type CardProps = {
   card: CardsType;
   setCardId: (cardId: number) => void;
   setIsModal: (isModal: boolean) => void;

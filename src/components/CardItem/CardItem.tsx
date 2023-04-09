@@ -31,7 +31,7 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
   }, [cardId]);
 
   const Content = () => (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="cardItem">
       <div className={styles.image}>
         <img src={image} alt={cardItem.title} />
       </div>

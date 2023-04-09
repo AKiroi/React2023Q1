@@ -2,9 +2,9 @@ import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 
 import styles from './Search.module.scss';
 
-interface SearchProps {
+type SearchProps = {
   setSearch: (searchValue: string) => void;
-}
+};
 
 const Search: FC<SearchProps> = ({ setSearch }) => {
   const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');

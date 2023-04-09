@@ -5,7 +5,7 @@ import Search from './Search';
 
 describe('Search', () => {
   it('Should has placeholder', () => {
-    render(<Search />);
+    render(<Search setSearch={() => {}} />);
     expect(screen.getByPlaceholderText('Find...')).toBeInTheDocument();
   });
 });
