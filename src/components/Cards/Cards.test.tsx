@@ -49,7 +49,7 @@ describe('Cards', () => {
     expect(<Cards cards={mockData} setIsModal={() => {}} setCardId={() => {}} />).toBeDefined();
   });
 
-  it('Render MainPage', () => {
+  it('Render Cards', () => {
     render(<Cards cards={mockData} setIsModal={() => {}} setCardId={() => {}} />);
     expect(screen.getByTestId('cards')).toBeInTheDocument();
   });
