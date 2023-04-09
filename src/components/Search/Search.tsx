@@ -1,20 +1,13 @@
-import React, { ChangeEvent, useRef, useState, useEffect } from 'react';
+import React, { ChangeEvent, FC  } from 'react';
 
 import styles from './Search.module.scss';
 
-const Search = () => {
-  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
-  const search = useRef<string>();
+interface SearchProps  {
+  setSearchValue: (searchValue: string) => void ;
+  searchValue: string;
+};
 
-  useEffect(() => {
-    search.current = searchValue;
-  }, [searchValue]);
-
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', search.current || '');
-    };
-  }, []);
+const Search: FC<SearchProps> = ({ searchValue, setSearchValue }) => {
 
   const handleSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
@@ -22,7 +15,7 @@ const Search = () => {
 
   return (
     <div className={styles.search}>
-      <input type="text" value={searchValue} placeholder="Find..." onChange={handleSearchValue} />
+      <input type="text" value={searchValue || ''} placeholder="Find..." onChange={handleSearchValue} />
     </div>
   );
 };
