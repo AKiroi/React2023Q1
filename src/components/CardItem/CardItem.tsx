@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { CardsType } from '../../pages/MainPage/MainPage';
+import Loader from '../Loader/Loader';
 
 import styles from './CardItem.module.scss';
 
@@ -12,7 +13,7 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
   const [cardItem, setCardItem] = useState<CardsType>({} as CardsType);
   const [image, setImage] = useState('');
 
-  const getItemById = useCallback(async (): Promise<void> => {
+  const getCardItem = async (): Promise<void> => {
     setIsLoading(true);
     try {
       const res = await fetch(`https://dummyjson.com/products/${cardId}`);
@@ -24,14 +25,14 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  };
 
   useEffect(() => {
-    getItemById();
+    getCardItem();
     console.log(cardItem);
   }, []);
 
-  return (
+  const Content = () => (
     <div className={styles.card} data-testid="card">
       <div className={styles.image}>
         <img src={image} alt={cardItem.title} />
@@ -52,6 +53,8 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
       </div>
     </div>
   );
+
+  return <>{isLoading ? <Loader /> : <Content />}</>;
 };
 
 export default CardItem;
