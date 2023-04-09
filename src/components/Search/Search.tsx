@@ -1,22 +1,29 @@
-import React, { ChangeEvent, FC  } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState  } from 'react';
 
 import styles from './Search.module.scss';
 
 interface SearchProps  {
-  setSearchValue: (searchValue: string) => void ;
-  searchValue: string;
+  setSearch: (searchValue: string) => void ;
 };
 
-const Search: FC<SearchProps> = ({ searchValue, setSearchValue }) => {
+const Search: FC<SearchProps> = ({ setSearch }) => {
+  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
 
-  const handleSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handlerSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
   };
 
+  const handlerSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    setSearch(searchValue);
+  };
+
+
   return (
-    <div className={styles.search}>
-      <input type="text" value={searchValue || ''} placeholder="Find..." onChange={handleSearchValue} />
-    </div>
+    <form className={styles.search} onSubmit={handlerSubmit} >
+      <input type="text" value={searchValue || ''} placeholder="Find..." onChange={handlerSearchValue} />
+      <button className={styles.button}>Search</button>
+    </form>
   );
 };
 

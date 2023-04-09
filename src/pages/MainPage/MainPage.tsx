@@ -21,7 +21,7 @@ export type CardsType = {
 };
 
 const MainPage = () => {
-  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
+  const [search, setSearch] = useState<string>(localStorage.getItem('searchValue') || '');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [cardId, setCardId] = useState<number>(0);
@@ -31,7 +31,7 @@ const MainPage = () => {
   const getCards = async (): Promise<void> => {
     setIsLoading(true);
     try {
-      const res = await fetch(`https://dummyjson.com/products/search?q=${searchValue}`);
+      const res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
       const data = await res.json();
       setCards(data.products);
     } catch (error) {
@@ -43,8 +43,8 @@ const MainPage = () => {
 
   useEffect(() => {
     getCards();
-    searchRef.current = searchValue;
-  }, [searchValue]);
+    searchRef.current = search;
+  }, [search]);
 
   useEffect(() => {
     return () => {
@@ -53,13 +53,13 @@ const MainPage = () => {
   }, []);
 
   const Content = () => {
-    return cards.length > 0 ? <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} /> : <div>The card is empty</div>;
+    return cards.length > 0 ? <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} /> : <div>The goods is missing!</div>;
   };
 
   return (
     <div className={styles.main} data-testid="mainPage">
       {isModal && <Modal setIsModal={setIsModal} cardId={cardId} />}
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Search setSearch={setSearch} />
       {isLoading ? <Loader /> : <Content />}
     </div>
   );

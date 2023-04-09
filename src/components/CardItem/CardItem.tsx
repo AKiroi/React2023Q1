@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { CardsType } from '../../pages/MainPage/MainPage';
 import Loader from '../Loader/Loader';
 
@@ -13,7 +13,7 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
   const [cardItem, setCardItem] = useState<CardsType>({} as CardsType);
   const [image, setImage] = useState('');
 
-  const getCardItem = async (): Promise<void> => {
+  const getCardItem = async () => {
     setIsLoading(true);
     try {
       const res = await fetch(`https://dummyjson.com/products/${cardId}`);
@@ -33,7 +33,7 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
   }, []);
 
   const Content = () => (
-    <div className={styles.card} data-testid="card">
+    <div className={styles.card}>
       <div className={styles.image}>
         <img src={image} alt={cardItem.title} />
       </div>
