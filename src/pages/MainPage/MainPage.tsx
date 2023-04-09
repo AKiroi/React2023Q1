@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getData } from '../../utils/getData';
 import Cards from '../../components/Cards/Cards';
 import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
@@ -32,9 +33,8 @@ const MainPage = () => {
     const getCards = async (search: string): Promise<void> => {
       setIsLoading(true);
       try {
-        const res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
-        const data = await res.json();
-        setCards(data.products);
+        const data = await getData(search);
+        setCards(data);
       } catch (error) {
         console.log(error);
       } finally {

@@ -25,7 +25,7 @@ const mockData: CardsType = {
 
 describe('Card', () => {
   it('render card ', () => {
-    render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}}/>);
+    render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}} />);
 
     const title = screen.getByText('perfume Oil');
     const brand = screen.getByText('Brand: Impression of Acqua Di Gio');
@@ -41,6 +41,6 @@ describe('Card', () => {
   });
 
   it('Should defined', () => {
-    render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}}/>);
+    render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}} />);
   });
 });

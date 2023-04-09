@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import { getDataById } from '../../utils/getData';
 import { CardsType } from '../../pages/MainPage/MainPage';
 import Loader from '../Loader/Loader';
 
@@ -17,8 +18,7 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
     const getCardItem = async (cardId: number): Promise<void> => {
       setIsLoading(true);
       try {
-        const res = await fetch(`https://dummyjson.com/products/${cardId}`);
-        const data = await res.json();
+        const data = await getDataById(cardId.toString());
         setCardItem(data);
         setImage(data.images[0]);
       } catch (error) {

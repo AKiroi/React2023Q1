@@ -1,31 +1,23 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import CardItem from './CardItem';
-import { CardsType } from '../../pages/MainPage/MainPage';
-
-const mockData: CardsType = {
-  id: 11,
-  title: 'perfume Oil',
-  description: 'Mega Discount, Impression of A...',
-  price: 13,
-  discountPercentage: 8.4,
-  rating: 4.26,
-  stock: 65,
-  brand: 'Impression of Acqua Di Gio',
-  category: 'fragrances',
-  thumbnail: 'https://i.dummyjson.com/data/products/11/thumbnail.jpg',
-  images: [
-    'https://i.dummyjson.com/data/products/11/1.jpg',
-    'https://i.dummyjson.com/data/products/11/2.jpg',
-    'https://i.dummyjson.com/data/products/11/3.jpg',
-    'https://i.dummyjson.com/data/products/11/thumbnail.jpg',
-  ],
-};
-
+import { render, screen, waitFor } from '@testing-library/react';
+import { getDataById } from '../../utils/getData';
 
 describe('CardItem', () => {
   it('Should defined', () => {
-    expect(<CardItem cardId={1} />).toBeDefined();
+    expect(<CardItem cardId={22} />).toBeDefined();
+  });
+  it('Render CardItem', async () => {
+    const data = await getDataById('1');
+    render(<CardItem cardId={22} />);
+    waitFor(() => {
+      expect(screen.getByText(data.title)).toBeInTheDocument();
+      expect(screen.getByText(`Brand: ${data.brand}`)).toBeInTheDocument();
+      expect(screen.getByText(`Category: ${data.category}`)).toBeInTheDocument();
+      expect(screen.getByText(`Description: ${data.description}`)).toBeInTheDocument();
+      expect(screen.getByText(`Stock: ${data.stock}`)).toBeInTheDocument();
+      expect(screen.getByText(`Rating: ${data.rating}`)).toBeInTheDocument();
+      expect(screen.getByText(`Discount: ${data.discountPercentage}%`)).toBeInTheDocument();
+    });
   });
 });

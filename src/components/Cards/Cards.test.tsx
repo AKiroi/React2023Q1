@@ -41,7 +41,7 @@ const mockData: CardsType[] = [
       'https://i.dummyjson.com/data/products/11/3.jpg',
       'https://i.dummyjson.com/data/products/11/thumbnail.jpg',
     ],
-  }
+  },
 ];
 
 describe('Cards', () => {

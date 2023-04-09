@@ -8,8 +8,8 @@ describe('MainPage', () => {
   it('Should defined', () => {
     expect(<MainPage />).toBeDefined();
   });
-  //it('Render MainPage', () => {
-  //  render(<MainPage />);
-  //  expect(screen.getByTestId('mainPage')).toBeInTheDocument();
-  //});
+  it('Render MainPage', () => {
+    render(<MainPage />);
+    expect(screen.getByTestId('mainPage')).toBeInTheDocument();
+  });
 });

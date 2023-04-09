@@ -14,7 +14,7 @@ const Modal: FC<ModalProps> = ({ setIsModal, cardId }) => {
   };
 
   return (
-    <div className={styles.modal} onClick={closeModal}>
+    <div className={styles.modal} onClick={closeModal} data-testid="modal">
       <div className={styles.background} />
       <div className={styles.container} onClick={(e) => e.stopPropagation()}>
         <div className={styles.btnClose} onClick={closeModal}>
