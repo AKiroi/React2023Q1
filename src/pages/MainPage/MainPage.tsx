@@ -28,21 +28,20 @@ const MainPage = () => {
   const [cards, setCards] = useState<CardsType[]>([]);
   const searchRef = useRef<string>();
 
-  const getCards = async (): Promise<void> => {
-    setIsLoading(true);
-    try {
-      const res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
-      const data = await res.json();
-      setCards(data.products);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getCards();
+    const getCards = async (search: string): Promise<void> => {
+      setIsLoading(true);
+      try {
+        const res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
+        const data = await res.json();
+        setCards(data.products);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getCards(search);
     searchRef.current = search;
     localStorage.setItem('searchValue', searchRef.current || '');
   }, [search]);
@@ -54,7 +53,11 @@ const MainPage = () => {
   }, []);
 
   const Content = () => {
-    return cards.length > 0 ? <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} /> : <div>The goods is missing!</div>;
+    return cards.length > 0 ? (
+      <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} />
+    ) : (
+      <div>The goods is missing!</div>
+    );
   };
 
   return (

@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FC, FormEvent, useState  } from 'react';
+import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 
 import styles from './Search.module.scss';
 
-interface SearchProps  {
-  setSearch: (searchValue: string) => void ;
-};
+interface SearchProps {
+  setSearch: (searchValue: string) => void;
+}
 
 const Search: FC<SearchProps> = ({ setSearch }) => {
   const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
@@ -18,10 +18,14 @@ const Search: FC<SearchProps> = ({ setSearch }) => {
     setSearch(searchValue);
   };
 
-
   return (
-    <form className={styles.search} onSubmit={handlerSubmit} >
-      <input type="text" value={searchValue || ''} placeholder="Find..." onChange={handlerSearchValue} />
+    <form className={styles.search} onSubmit={handlerSubmit}>
+      <input
+        type="text"
+        value={searchValue || ''}
+        placeholder="Find..."
+        onChange={handlerSearchValue}
+      />
       <button className={styles.button}>Search</button>
     </form>
   );

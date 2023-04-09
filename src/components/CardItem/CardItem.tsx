@@ -13,24 +13,22 @@ const CardItem: FC<CardItemProps> = ({ cardId }) => {
   const [cardItem, setCardItem] = useState<CardsType>({} as CardsType);
   const [image, setImage] = useState('');
 
-  const getCardItem = async () => {
-    setIsLoading(true);
-    try {
-      const res = await fetch(`https://dummyjson.com/products/${cardId}`);
-      const data = await res.json();
-      setCardItem(data);
-      setImage(data.images[0]);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getCardItem();
-    console.log(cardItem);
-  }, []);
+    const getCardItem = async (cardId: number): Promise<void> => {
+      setIsLoading(true);
+      try {
+        const res = await fetch(`https://dummyjson.com/products/${cardId}`);
+        const data = await res.json();
+        setCardItem(data);
+        setImage(data.images[0]);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getCardItem(cardId);
+  }, [cardId]);
 
   const Content = () => (
     <div className={styles.card}>

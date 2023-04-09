@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { dataCards } from '../../data/data';
 import Card from '../Card/Card';
 import { CardsType } from '../../pages/MainPage/MainPage';
 

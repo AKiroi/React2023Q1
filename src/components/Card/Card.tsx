@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { CardType } from '../../data/types';
 import { CardsType } from '../../pages/MainPage/MainPage';
 import styles from './Card.module.scss';
 
@@ -7,14 +6,14 @@ type CardProps = {
   card: CardsType;
   setCardId: (cardId: number) => void;
   setIsModal: (isModal: boolean) => void;
-}
+};
 
-const Card:FC<CardProps> = ({ card, setCardId, setIsModal }) => {
+const Card: FC<CardProps> = ({ card, setCardId, setIsModal }) => {
   const { id, title, brand, category, images, stock, rating, price } = card;
   const handlerOnClick = () => {
     setCardId(id);
     setIsModal(true);
-  }
+  };
   return (
     <div className={styles.card} onClick={handlerOnClick} data-testid="card">
       <div className={styles.contentWrapper}>
