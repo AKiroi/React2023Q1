@@ -4,7 +4,7 @@ import styles from './Loader.module.scss';
 
 const Loader = () => {
   return (
-   <div>Loading...</div>
+   <span className={styles.loader}></span>
   );
 };
 

@@ -44,6 +44,7 @@ const MainPage = () => {
   useEffect(() => {
     getCards();
     searchRef.current = search;
+    localStorage.setItem('searchValue', searchRef.current || '');
   }, [search]);
 
   useEffect(() => {
