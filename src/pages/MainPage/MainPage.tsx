@@ -57,7 +57,7 @@ const MainPage = () => {
 
   return (
     <div className={styles.main} data-testid="mainPage">
-      {isModal && <Modal />}
+      {isModal && <Modal setIsModal={setIsModal} />}
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       {isLoading ? <Loader /> : <Content />}
     </div>
