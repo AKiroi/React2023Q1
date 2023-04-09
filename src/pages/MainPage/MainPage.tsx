@@ -23,7 +23,8 @@ export type CardsType = {
 const MainPage = () => {
   const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isModal, setIsModal] = useState<boolean>(true);
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [cardId, setCardId] = useState<number>(0);
   const [cards, setCards] = useState<CardsType[]>([]);
   const searchRef = useRef<string>();
 
@@ -52,7 +53,7 @@ const MainPage = () => {
   }, []);
 
   const Content = () => {
-    return cards.length > 0 ? <Cards cards={cards} /> : <div>The card is empty</div>;
+    return cards.length > 0 ? <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} /> : <div>The card is empty</div>;
   };
 
   return (
