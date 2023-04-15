@@ -19,7 +19,7 @@ const Search: FC<SearchProps> = ({ setSearch }) => {
   };
 
   return (
-    <form className={styles.search} onSubmit={handlerSubmit}>
+    <form className={styles.search} onSubmit={handlerSubmit} data-testid="search">
       <input
         type="text"
         value={searchValue || ''}

@@ -46,12 +46,6 @@ const MainPage = () => {
     localStorage.setItem('searchValue', searchRef.current || '');
   }, [search]);
 
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', searchRef.current || '');
-    };
-  }, []);
-
   const Content = () => {
     return cards.length > 0 ? (
       <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} />

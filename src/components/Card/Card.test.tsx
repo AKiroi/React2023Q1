@@ -33,14 +33,11 @@ describe('Card', () => {
     const stock = screen.getByText('Stock: 65');
     const rating = screen.getByText('Rating: 4.26');
 
+    expect(screen.getByRole('list')).toBeInTheDocument();
     expect(title).toBeInTheDocument();
     expect(category).toBeInTheDocument();
     expect(brand).toBeInTheDocument();
     expect(stock).toBeInTheDocument();
     expect(rating).toBeInTheDocument();
-  });
-
-  it('Should defined', () => {
-    render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}} />);
   });
 });

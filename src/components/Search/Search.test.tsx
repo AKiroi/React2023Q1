@@ -8,4 +8,8 @@ describe('Search', () => {
     render(<Search setSearch={() => {}} />);
     expect(screen.getByPlaceholderText('Find...')).toBeInTheDocument();
   });
+  it('Render search component', () => {
+    render(<Search setSearch={() => {}} />);
+    expect(screen.getByTestId('search')).toBeInTheDocument();
+  });
 });
