@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { getData } from '../../utils/getData';
 import Cards from '../../components/Cards/Cards';
 import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
 import Modal from '../../components/Modal/Modal';
+import { RootState } from '../../store/store';
 
 import styles from './Main.module.scss';
 
@@ -22,7 +24,8 @@ export type CardsType = {
 };
 
 const MainPage = () => {
-  const [search, setSearch] = useState<string>(localStorage.getItem('searchValue') || '');
+  //const [search, setSearch] = useState<string>(localStorage.getItem('searchValue') || '');
+  const { search } = useSelector((state: RootState) => state.search);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [cardId, setCardId] = useState<number>(0);
@@ -57,7 +60,7 @@ const MainPage = () => {
   return (
     <div className={styles.main} data-testid="mainPage">
       {isModal && <Modal setIsModal={setIsModal} cardId={cardId} />}
-      <Search setSearch={setSearch} />
+      <Search />
       {isLoading ? <Loader /> : <Content />}
     </div>
   );

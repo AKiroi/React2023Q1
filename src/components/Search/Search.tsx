@@ -1,13 +1,19 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearch } from '../../store/searchSlice';
+import { RootState, AppDispatch } from '../../store/store';
 
 import styles from './Search.module.scss';
 
-type SearchProps = {
-  setSearch: (searchValue: string) => void;
-};
+//type SearchProps = {
+//  setSearch: (searchValue: string) => void;
+//};
 
-const Search: FC<SearchProps> = ({ setSearch }) => {
-  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
+const Search: FC = () => {
+  const { search } = useSelector((state: RootState) => state.search);
+  const [searchValue, setSearchValue] = useState<string>(search);
+  const dispatch = useDispatch<AppDispatch>();
+
 
   const handlerSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
@@ -15,7 +21,7 @@ const Search: FC<SearchProps> = ({ setSearch }) => {
 
   const handlerSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setSearch(searchValue);
+    dispatch(setSearch(searchValue));
   };
 
   return (
