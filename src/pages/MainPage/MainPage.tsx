@@ -6,7 +6,7 @@ import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
 import Modal from '../../components/Modal/Modal';
 import { RootState } from '../../store/store';
-import { useGetProductsQuery } from '../../services/cardsApi';
+import { useGetCardsQuery } from '../../services/cardsApi';
 
 import styles from './Main.module.scss';
 
@@ -26,8 +26,7 @@ export type CardsType = {
 
 const MainPage = () => {
   const { search } = useSelector((state: RootState) => state.search);
-  console.log(search);
-  const { data: cards, error, isLoading } = useGetProductsQuery(search);
+  const { data: cards, error, isFetching } = useGetCardsQuery(search);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [cardId, setCardId] = useState<number>(0);
 
@@ -43,7 +42,7 @@ const MainPage = () => {
     <div className={styles.main} data-testid="mainPage">
       {isModal && <Modal setIsModal={setIsModal} cardId={cardId} />}
       <Search />
-      {isLoading ? <Loader /> : <Content />}
+      {isFetching ? <Loader /> : <Content />}
     </div>
   );
 };

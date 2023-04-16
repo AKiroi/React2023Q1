@@ -14,13 +14,18 @@ export const cardsApi = createApi({
     baseUrl: 'https://dummyjson.com/',
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query<CardsType[], string>({
+    getCards: builder.query<CardsType[], string>({
       query: (value) => ({
         url: `products/search?q=${value}`,
       }),
       transformResponse: (response: Response) => response.products,
     }),
+    getCardById: builder.query<CardsType, number>({
+      query: (id) => ({
+        url: `products/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetProductsQuery } = cardsApi;
+export const { useGetCardsQuery, useGetCardByIdQuery } = cardsApi;
