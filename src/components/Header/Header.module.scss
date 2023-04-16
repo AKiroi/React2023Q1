@@ -1,0 +1,29 @@
+.header {
+  color: #fff; 
+  background-color: #000;
+}
+.container {
+  padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav {
+  padding: 10px 0;
+  color: #fff;
+  display: flex;
+  gap: 15px;
+  align-items: end;
+  a {
+   color: #fff;
+   
+  }
+}
+.link {
+  text-decoration: none;
+}
+.active {
+  text-decoration: underline;
+}

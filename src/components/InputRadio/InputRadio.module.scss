@@ -1,0 +1,25 @@
+.label {
+  width: 100%;
+  cursor: pointer;
+}
+
+.input {
+  display: inline-block;
+}
+
+.radioContainer {
+  align-self: flex-start;
+}
+
+.radioLabel {
+  cursor: pointer;
+  margin-left: 15px;
+  span {
+    margin-left: 10px;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
