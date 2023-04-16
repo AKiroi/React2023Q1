@@ -27,10 +27,7 @@ describe('Modal', () => {
         <Modal setIsModal={setIsModal} cardId={2} />
       </Provider>
     );
-    waitFor(() => {
-      const closeBtn = screen.getByTestId('modalClose');
-      UserEvent.click(closeBtn);
-      expect(setIsModal).toHaveBeenCalled();
-    });
+    await UserEvent.click(screen.getByTestId('modalClosed'));
+    expect(setIsModal).toHaveBeenCalled();
   });
 });
