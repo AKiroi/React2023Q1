@@ -1,15 +1,34 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
+import store from '../../store/store';
+import { Provider } from 'react-redux';
+import UserEvent from '@testing-library/user-event';
 
 import Modal from './Modal';
 
 describe('Modal', () => {
+  const setIsModal = vi.fn();
   it('Should defined', () => {
     expect(<Modal setIsModal={() => {}} cardId={2} />).toBeDefined();
   });
   it('Render Modal', () => {
-    render(<Modal setIsModal={() => {}} cardId={2} />);
+    render(
+      <Provider store={store}>
+        <Modal setIsModal={() => {}} cardId={2} />
+      </Provider>
+    );
     expect(screen.getByTestId('modal')).toBeInTheDocument();
+  });
+
+  it('should interract with the user', async () => {
+    render(
+      <Provider store={store}>
+        <Modal setIsModal={setIsModal} cardId={2} />
+      </Provider>
+    );
+    const closeBtn = screen.getByRole('button');
+    await UserEvent.click(closeBtn);
+    expect(setIsModal).toHaveBeenCalled();
   });
 });
