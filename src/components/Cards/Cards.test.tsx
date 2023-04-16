@@ -5,7 +5,6 @@ import { render, screen } from '@testing-library/react';
 import Cards from './Cards';
 import { mockData } from '../../data/data';
 
-
 describe('Cards', () => {
   it('Should be defined', () => {
     expect(<Cards cards={mockData} setIsModal={() => {}} setCardId={() => {}} />).toBeDefined();

@@ -8,7 +8,7 @@ const FormUsersList: FC = () => {
   const { users } = useSelector((state: RootState) => state.formCard);
 
   return (
-    <ul className={styles.list}>
+    <ul className={styles.list} data-testid="userList">
       {users.map((user) => (
         <FormUserCard user={user} key={user.id} />
       ))}

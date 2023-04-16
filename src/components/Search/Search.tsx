@@ -26,6 +26,7 @@ const Search: FC = () => {
         value={searchValue || ''}
         placeholder="Find..."
         onChange={handlerSearchValue}
+        data-testid="searchInput"
       />
       <button className={styles.button}>Search</button>
     </form>

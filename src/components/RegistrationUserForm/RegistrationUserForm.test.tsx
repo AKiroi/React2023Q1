@@ -9,7 +9,7 @@ describe('RegistrationUserForm component', () => {
   it('Render RegistrationUserForm component', async () => {
     render(
       <Provider store={store}>
-       <RegistrationUserForm />
+        <RegistrationUserForm />
       </Provider>
     );
     expect(screen.getByTestId('form')).toBeInTheDocument();

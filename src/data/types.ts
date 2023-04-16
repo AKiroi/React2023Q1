@@ -1,5 +1,3 @@
-
-
 export type RegistrationForm = {
   id: string;
   firstName: string;

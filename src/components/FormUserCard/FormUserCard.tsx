@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { RegistrationForm } from '../../pages/FormPage/FormPage';
+import { RegistrationForm } from '../../data/types';
 import styles from './FormUserCard.module.scss';
 
 type FormUserCardProp = {

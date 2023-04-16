@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Search from './Search';
 import store from '../../store/store';
 import { Provider } from 'react-redux';
@@ -21,5 +21,14 @@ describe('Search', () => {
       </Provider>
     );
     expect(screen.getByTestId('search')).toBeInTheDocument();
+  });
+  it('should update search input', () => {
+    render(
+      <Provider store={store}>
+        <Search />
+      </Provider>
+    );
+    fireEvent.input(screen.getByTestId('searchInput'), { target: { value: 'find...' } });
+    expect(screen.getByTestId('searchInput')).toHaveValue('find...');
   });
 });

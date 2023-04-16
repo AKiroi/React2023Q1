@@ -25,7 +25,6 @@ const mockData: CardsType = {
 
 describe('Card', () => {
   it('render card ', () => {
-    
     render(<Card card={mockData} setIsModal={() => {}} setCardId={() => {}} />);
 
     const title = screen.getByText('perfume Oil');

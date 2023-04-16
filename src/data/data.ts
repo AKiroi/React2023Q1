@@ -1,4 +1,3 @@
-
 import { CardsType } from '../pages/MainPage/MainPage';
 
 export const mockData: CardsType[] = [
@@ -39,5 +38,3 @@ export const mockData: CardsType[] = [
     ],
   },
 ];
-
-
