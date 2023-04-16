@@ -6,12 +6,12 @@ import InputRadio from '../InputRadio/InputRadio';
 import InputFile from '../InputFile/InputFile';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import Select from '../Select/Select';
-import { RegistrationForm } from '../../pages/FormPage/FormPage';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { addUsers } from '../../store/formCardSlice';
+
 import styles from './RegistrationUserForm.module.scss';
 
-type RegistrationFormProps = {
-  addUser: (user: RegistrationForm) => void;
-};
 export type FormNameTypes =
   | 'firstName'
   | 'lastName'
@@ -31,7 +31,9 @@ export type Forms = {
   check?: boolean;
 };
 
-const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
+const RegistrationUserForm: FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const [isAddUser, setIsAddUser] = useState(false);
   const {
     register,
@@ -45,7 +47,7 @@ const RegistrationUserForm: FC<RegistrationFormProps> = ({ addUser }) => {
     if (files && check) {
       const id = Date.now().toString();
       const photo = URL.createObjectURL(files[0]);
-      addUser({ id, firstName, lastName, country, birthday, gender, photo, check });
+      dispatch(addUsers({ id, firstName, lastName, country, birthday, gender, photo, check }));
     }
     reset();
     setIsAddUser(true);

@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import FormUserCard from '../FormUserCard/FormUserCard';
-import { RegistrationForm } from '../../pages/FormPage/FormPage';
 import styles from './FormUsersList.module.scss';
+import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
 
-type UsersListProps = {
-  users: RegistrationForm[];
-};
+const FormUsersList: FC = () => {
+  const { users } = useSelector((state: RootState) => state.formCard);
 
-const FormUsersList: FC<UsersListProps> = ({ users }) => {
   return (
     <ul className={styles.list}>
       {users.map((user) => (
