@@ -6,6 +6,7 @@ import Search from '../../components/Search/Search';
 import Loader from '../../components/Loader/Loader';
 import Modal from '../../components/Modal/Modal';
 import { RootState } from '../../store/store';
+import { useGetProductsQuery } from '../../services/cardsApi';
 
 import styles from './Main.module.scss';
 
@@ -24,33 +25,14 @@ export type CardsType = {
 };
 
 const MainPage = () => {
-  //const [search, setSearch] = useState<string>(localStorage.getItem('searchValue') || '');
   const { search } = useSelector((state: RootState) => state.search);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  console.log(search);
+  const { data: cards, error, isLoading } = useGetProductsQuery(search);
   const [isModal, setIsModal] = useState<boolean>(false);
   const [cardId, setCardId] = useState<number>(0);
-  const [cards, setCards] = useState<CardsType[]>([]);
-  const searchRef = useRef<string>();
-
-  useEffect(() => {
-    const getCards = async (search: string): Promise<void> => {
-      setIsLoading(true);
-      try {
-        const data = await getData(search);
-        setCards(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getCards(search);
-    searchRef.current = search;
-    localStorage.setItem('searchValue', searchRef.current || '');
-  }, [search]);
 
   const Content = () => {
-    return cards.length > 0 ? (
+    return cards && cards.length > 0 ? (
       <Cards cards={cards} setIsModal={setIsModal} setCardId={setCardId} />
     ) : (
       <div>The goods is missing!</div>
