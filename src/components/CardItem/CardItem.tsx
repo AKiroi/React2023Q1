@@ -1,8 +1,5 @@
 import React, { FC } from 'react';
-import Loader from '../Loader/Loader';
 import { CardsType } from '../../pages/MainPage/MainPage';
-//import { useGetCardByIdQuery } from '../../services/cardsApi';
-
 import styles from './CardItem.module.scss';
 
 type CardItemProps = {
@@ -10,7 +7,6 @@ type CardItemProps = {
 };
 
 const CardItem: FC<CardItemProps> = ({ cardItem }) => {
-  //const { data: cardItem, error, isFetching } = useGetCardByIdQuery(cardId);
   return (
     <div className={styles.card} data-testid="cardItem">
       <div className={styles.image}>

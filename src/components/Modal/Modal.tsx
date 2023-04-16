@@ -19,19 +19,18 @@ const Modal: FC<ModalProps> = ({ setIsModal, cardId }) => {
   return (
     <>
       {isFetching && <Loader />}
+      <div className={styles.modal} onClick={closeModal} data-testid="modal">
       {!isFetching && !error && cardItem && (
-        <div className={styles.modal} onClick={closeModal} data-testid="modal">
-          <div className={styles.background} />
-          <div className={styles.container} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.btnClose} onClick={closeModal}>
-              x
-            </button>
-            <div className={styles.content}>
-              <CardItem cardItem={cardItem} />
-            </div>
+        <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+          <button className={styles.btnClose} onClick={closeModal} data-testid="modalClosed">
+            x
+          </button>
+          <div className={styles.content}>
+          <CardItem cardItem={cardItem} />
           </div>
         </div>
       )}
+      </div>
     </>
   );
 };

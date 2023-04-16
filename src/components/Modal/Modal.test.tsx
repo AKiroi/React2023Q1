@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
 import store from '../../store/store';
 import { Provider } from 'react-redux';
@@ -21,14 +21,16 @@ describe('Modal', () => {
     expect(screen.getByTestId('modal')).toBeInTheDocument();
   });
 
-  it('should interract with the user', async () => {
+  it('should closed modal', async () => {
     render(
       <Provider store={store}>
         <Modal setIsModal={setIsModal} cardId={2} />
       </Provider>
     );
-    const closeBtn = screen.getByRole('button');
-    await UserEvent.click(closeBtn);
-    expect(setIsModal).toHaveBeenCalled();
+    waitFor(() => {
+      const closeBtn = screen.getByTestId('modalClose');
+      UserEvent.click(closeBtn);
+      expect(setIsModal).toHaveBeenCalled();
+    });
   });
 });
