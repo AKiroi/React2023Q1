@@ -18,4 +18,4 @@ export type RegistrationForm = {
   country: string;
   photo: string;
   check: boolean;
-}
+};

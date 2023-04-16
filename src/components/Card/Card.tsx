@@ -39,7 +39,6 @@ const Card: FC<CardProps> = ({ card, setCardId, setIsModal }) => {
 
 export default Card;
 
-
 //const Card: FC<CardProps> = ({ card, setCardId, setIsModal }) => {
 //  const { id, title, brand, category, images, stock, rating, price } = card;
 //  const handlerOnClick = () => {

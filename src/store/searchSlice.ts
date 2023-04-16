@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type SearchSlice = {
   search: string;
-}
+};
 
 const searchSlice = createSlice({
   name: 'search',
