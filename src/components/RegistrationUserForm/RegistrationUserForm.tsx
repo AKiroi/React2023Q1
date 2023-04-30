@@ -7,7 +7,6 @@ import InputFile from '../InputFile/InputFile';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import Select from '../Select/Select';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
 import { addUsers } from '../../store/formCardSlice';
 
 import styles from './RegistrationUserForm.module.scss';
@@ -32,7 +31,7 @@ export type Forms = {
 };
 
 const RegistrationUserForm: FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch();
 
   const [isAddUser, setIsAddUser] = useState(false);
   const {
