@@ -13,7 +13,7 @@ const TestInput = () => {
   } = useForm<Forms>();
   return (
     <Input
-      name="firstName"
+      nameValue="firstName"
       labelName="Your first name:"
       type="text"
       register={register}

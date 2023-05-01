@@ -42,6 +42,8 @@ export default defineConfig({
         '**/server.ts',
         '**/entry-client.tsx',
         '**/entry-server.tsx',
+        '**/vite-env.d.ts',
+        '**/{vite,vitest,jest,babel,nyc,cypress}.config.*',
       ],
     },
   },
