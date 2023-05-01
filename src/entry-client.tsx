@@ -1,15 +1,20 @@
 import React from 'react';
+import { PreloadedState } from '@reduxjs/toolkit';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
-import { initStore, RootState } from './store/store';
+import { initialStore, RootState } from './store/store';
 
 import './index.css';
 
-const store = initStore(window.PRELOADED_STATE);
+type WindowType = Window &
+  typeof globalThis & {
+    PRELOADED_STATE?: RootState;
+  };
 
-delete window.PRELOADED_STATE;
+const store = initialStore((window as WindowType).PRELOADED_STATE);
+delete (window as WindowType).PRELOADED_STATE;
 
 ReactDOM.hydrateRoot(
   document.getElementById('app') as HTMLElement,

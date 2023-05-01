@@ -14,7 +14,7 @@ export type RootState = {
   [cardsApi.reducerPath]: ReturnType<typeof cardsApi.reducer>;
 };
 
-export const initStore = (preloadedState?: PreloadedState<RootState>) =>
+export const initialStore = (preloadedState?: PreloadedState<RootState>) =>
   configureStore({
     preloadedState,
     reducer: {
@@ -24,44 +24,3 @@ export const initStore = (preloadedState?: PreloadedState<RootState>) =>
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardsApi.middleware),
   });
-
-//export const store = configureStore({
-//  reducer: {
-//    search: searchReducer,
-//    formCard: formCardReducer,
-//    [cardsApi.reducerPath]: cardsApi.reducer,
-//  },
-//  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(cardsApi.middleware),
-//});
-
-//export default store;
-
-//export type AppDispatch = typeof initStore.dispatch;
-
-//import { cardsApi } from '../reducers/API';
-//import searchReducer from '../reducers/main';
-//import formReducer from '../reducers/form';
-
-//import { PreloadedState } from '@reduxjs/toolkit';
-//import * as toolkitRaw from '@reduxjs/toolkit';
-//type TypeToolkitRaw = typeof toolkitRaw & { default?: unknown };
-//const { configureStore, combineReducers } = ((toolkitRaw as TypeToolkitRaw).default ??
-//  toolkitRaw) as typeof toolkitRaw;
-
-//export const rootReducer = combineReducers({
-//  search: searchReducer,
-//  formCard: formCardReducer,
-//  [cardsApi.reducerPath]: cardsApi.reducer,
-//});
-
-//export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
-//  configureStore({
-//    reducer: rootReducer,
-//    preloadedState,
-//    middleware: (getDefaultMiddleware) =>
-//      getDefaultMiddleware({ immutableCheck: false }).concat(cardsApi.middleware),
-//  });
-
-//export type AppStore = ReturnType<typeof setupStore>;
-//export type AppDispatch = AppStore['dispatch'];
-//export type RootState = ReturnType<typeof rootReducer>;
