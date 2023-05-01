@@ -10,14 +10,36 @@ import istanbul from 'vite-plugin-istanbul';
 export default defineConfig({
   plugins: [
     react(),
+    eslint(),
+    istanbul({
+      cypress: true,
+      requireEnv: false,
+    }),
   ],
   server: {
     host: true,
     port: 3000,
+    watch: {
+      ignored: ['**/coverage/**'],
+    },
   },
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
+    coverage: {
+      provider: 'c8',
+      all: true,
+      reporter: 'text',
+      exclude: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/cypress/**',
+        'src/main.tsx',
+        '**/server.ts',
+        '**/entry-client.tsx',
+        '**/entry-server.tsx',
+      ],
+    },
   },
 });
