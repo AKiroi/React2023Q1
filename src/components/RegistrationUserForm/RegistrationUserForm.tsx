@@ -59,7 +59,7 @@ const RegistrationUserForm: FC = () => {
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} data-testid="form">
       <div className={styles.container}>
         <Input
-          name="firstName"
+          nameValue="firstName"
           labelName="Your first name:"
           type="text"
           register={register}
@@ -67,7 +67,7 @@ const RegistrationUserForm: FC = () => {
           placeholder="first name"
         />
         <Input
-          name="lastName"
+          nameValue="lastName"
           labelName="Your last name:"
           type="text"
           register={register}

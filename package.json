@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite-node server.ts",
-    "build": "tsc && vite build",
+    "start:server": "ts-node server.ts",
     "preview": "vite preview",
     "test:e2e": "start-server-and-test dev http://localhost:3000 test:cypress && npx nyc report --reporter=text-summary",
     "test:cypress": "cypress run --e2e",
-    "test": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
